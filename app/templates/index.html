@@ -1,0 +1,273 @@
+{% extends "./base.html" %} 
+{% block menu %} 
+    {% with page=1 %} 
+        {{block.super}} 
+    {% endwith %} 
+{% endblock %} 
+{% block content %}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+    <h1>Chào mừng đến với Fish King</h1>
+    <h2>Cùng nhau khám phá vương quốc của những cư dân sinh sống dưới nước</h2>
+    <a href="#about" class="btn-get-started scrollto">Sẵn sàng</a>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+          <img src="assets/img/about.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+          <h3>Vương quốc của những cư dân dưới nước</h3>
+          <p class="font-italic">
+            Fish King thành lập năm 2020.<br>
+            Trải qua nhiều năm hoạt động, Fish King đã có những bước phát triển mạnh mẽ và thành công như:
+          </p>
+          <ul>
+            <li><i class="icofont-check-circled"></i> Fish King mở rộng quy mô trên toàn nước</li>
+            <li><i class="icofont-check-circled"></i> Shop chia sẻ lượng kiến thức & kinh nghiệm cho "tủ sách kỹ thuật hướng dẫn cho người chơi cá cảnh"</li>
+            <li><i class="icofont-check-circled"></i> Lọt vào TOP 50 thương hiệu có sức ảnh hưởng nhất cả nước năm 2020</li>
+          </ul>
+          <p>
+            Chúng tôi chuyên cung cấp các sản phẩm về cá cánh và thủy sinh như: Cây thủy sinh, cá cảnh, máy lọc, sản phẩm vi sinh, set up bể... ngoài ra shop
+            còn chia sẻ kiến thức & kinh nghiệm và những hình ảnh đẹp về cá cảnh, tép cảnh và cây, bể thủy sinh.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Why Us Section ======= -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-4" data-aos="fade-up">
+          <div class="box">
+            <span>01</span>
+            <h4>Chất lượng sản phẩm</h4>
+            <p>Fish King luôn cung cấp các loại sản phẩm mới và chất lượng tốt nhất</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+          <div class="box">
+            <span>02</span>
+            <h4>Hỗ trợ khách hàng</h4>
+            <p>Shop luôn sẵn sàng tư vấn mọi thắc mắc của khách hàng và nhận phản hồi 24/7</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+          <div class="box">
+            <span>03</span>
+            <h4>Giao hàng - Thanh toán</h4>
+            <p>Khách hàng sẽ nhận được hàng đúng hẹn và thanh toán chỉ khi nhận được hàng</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Why Us Section -->
+
+  <!-- ======= Clients Section ======= -->
+  <section id="clients" class="clients">
+    <div class="container" data-aos="zoom-in">
+
+      <div class="row d-flex align-items-center">
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Clients Section -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <span>DỊCH VỤ</span>
+        <h2>DỊCH VỤ</h2>
+        <p>Fish King có rất nhiều các dịch vụ</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4><a href="">Tri ân khách hàng</a></h4>
+            <p>Khi khách hàng mua hàng tại shop sẽ được nhận nhiều sự ưu đãi</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4><a href="">Sân chơi cho khách hàng</a></h4>
+            <p>Fish King là nơi đấu giá các sản phẩm có giá trị cực lớn</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4><a href="">Vươn tầm thế giới</a></h4>
+            <p>Fish King nhập khẩu 100% các sản phẩm có thương hiệu trên thế giới</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-world"></i></div>
+            <h4><a href="">Nhận và ship hàng siêu tốc</a></h4>
+            <p>Hệ thống giao hàng chuyên nghiệp luôn đảm bảo đúng hẹn và an toàn cho sản phẩm</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-slideshow"></i></div>
+            <h4><a href="">Miền đất hứa cho các nhà phát triển</a></h4>
+            <p>Fish King luôn chào đón các nhà đầu tư để cùng nhau phát triển</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-arch"></i></div>
+            <h4><a href="">Tiếp thu, sửa lỗi để phát triển</a></h4>
+            <p>Fish King luôn tiếp nhận các ý kiến và sẵn sàng đền bù cho quý khách khi có lỗi</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
+
+      <div class="text-center">
+        <h3>Cùng nhau hợp tác & phát triển</h3>
+        <p> Fish King luôn mở cửa chào đón tất cả các nhà đầu tư trên toàn cầu để cùng nhau tạo ra một đế chế công nghiệp hùng mạnh để cùng nhau phát triển</p>
+        <a class="cta-btn" href="#">Liên hệ với chúng tôi</a>
+      </div>
+
+    </div>
+  </section><!-- End Cta Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <span>LIÊN HỆ</span>
+        <h2>LIÊN HỆ</h2>
+        <p>Quý khách hàng có thể liên hệ trực tiếp với chúng tôi</p>
+      </div>
+
+      <div class="row" data-aos="fade-up">
+        <div class="col-lg-6">
+          <div class="info-box mb-4">
+            <i class="bx bx-map"></i>
+            <h3>Địa chỉ</h3>
+            <p>105 Doãn Kế Thiện, Mai Dịch, Cầu Giấy, Hà Nội</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="info-box  mb-4">
+            <i class="bx bx-envelope"></i>
+            <h3>Email</h3>
+            <p>johnleeyest@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="info-box  mb-4">
+            <i class="bx bx-phone-call"></i>
+            <h3>Điện thoại</h3>
+            <p>+84 0379 329 066</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row" data-aos="fade-up">
+
+        <div class="col-lg-6 ">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.7855855623175!2d105.77578621488364!3d21.04126358599161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454cbb99a6335%3A0xfec6275038ada7d7!2zMTA1IERvw6NuIEvhur8gVGhp4buHbiwgTWFpIEThu4tjaCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1595209411246!5m2!1svi!2s" width="100%" height="384px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+
+        <div class="col-lg-6">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Họ và tên" data-rule="minlen:4" data-msg="Vui lòng nhập ít nhất 4 ký tự" />
+                <div class="validate"></div>
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Vui lòng nhập mail" />
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Số điện thoại" data-rule="minlen:4" data-msg="Vui lòng nhập số điện thoại" />
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Vui lòng nhập nội dung" placeholder="Nội dụng"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading">Vui lòng chờ...</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Cảm ơn quý khách đã gửi liên hệ tới chúng tôi!</div>
+            </div>
+            <div class="text-center"><button type="submit">Gửi liên hệ</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock %}

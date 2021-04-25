@@ -1,0 +1,77 @@
+{% extends "./base.html" %} 
+{% block menu %} 
+    {% with page=2 %} 
+        {{block.super}} 
+    {% endwith %} 
+{% endblock %} 
+{% block content %}
+
+<style>
+
+    .jumbotron {
+      background-color: black;
+    }
+
+  </style>
+
+<div class="jumbotron text-center"></div>
+
+<div class="container mt-5 mb-5">
+    <form method="POST" novalidate>
+    {%csrf_token%}
+    <h2>Đặt mua hàng trực tuyến</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td colspan="2"><h4>Thông tin sản phẩm</h4></td>
+            </tr>
+            <tr>
+                <th>Tên sản phẩm:</th>
+                <td>{{product.name}}</td>
+            </tr>
+            <tr>
+                <th>Đơn giá:</th>
+                <td>{{product.price}} đ</td>
+            </tr>
+            <tr>
+                <th>Số lượng:</th>
+                <td>{{form.qty}} {{form.qty.errors}}</td>
+            </tr>
+            <tr>
+                <th>Tổng tiền:</th>
+                <td><span id='total'>{{product.price}}</span> đ</td>
+            </tr>
+            <tr>
+                <td colspan="2"><h4>Thông tin khách hàng</h4></td>
+            </tr>
+            <tr>
+                <th>Họ và tên:</th>
+                <td>{{form.customer_name}} {{form.customer_name.errors}}</td>
+            </tr>
+            <tr>
+                <th>Số điện thoại:</th>
+                <td>{{form.customer_phone}} {{form.customer_phone.errors}}</td>
+            </tr>
+            <tr>
+                <th>Địa chỉ:</th>
+                <td>{{form.customer_address}} {{form.customer_address.errors}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="/product-detail/{{product.id}}"><i class="fas fa-undo"></i> Quay lại</a>
+    <button type="submit" class="btn btn-danger"><i class="fas fa-shopping-cart"></i> Đặt mua</button>
+</form>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.table input').addClass('form-control');
+
+        $('#id_qty').change(function(){
+            var total = $(this).val() * '{{product.price}}';
+            $('#total').html(total);
+        });
+    });
+</script>
+
+{% endblock %}

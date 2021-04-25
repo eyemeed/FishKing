@@ -1,0 +1,27 @@
+{% extends "../base.html" %}
+
+{% block menu %} 
+  {% with page=2 %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{%block content %}
+<div class="container pt-3">
+  <form novalidate method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <table class="table">{{form}}</table>
+    <a href='{% url "list-product" %}' class="btn btn-secondary">
+      Quay lại
+    </a>
+    <button type="submit" class="btn btn-primary">
+      Lưu lại
+    </button>
+  </form>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.table input, .table select').addClass('form-control');
+  })
+</script>
+{% endblock %}

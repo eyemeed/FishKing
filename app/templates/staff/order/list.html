@@ -1,0 +1,59 @@
+{% extends "../base.html" %}
+
+{% block menu %} 
+  {% with page=3 %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{%block content %}
+<div class="container pt-3">
+  <div class="row">
+  <div class="pt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Sản phẩm</th>
+          <th>Số lượng</th>
+          <th>Tên khách hàng(SĐT)</th>
+          <th>Ngày mua hàng</th>
+          <th>Trạng thái</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for o in orderList%}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{o.product.name}}</td>
+          <th>{{o.qty}}</th>
+          <td>{{o.customer_name}} ({{o.customer_phone}})</td>
+          <td>{{o.order_date|date:"d/m/y H:i:s"}}</td>
+          <td>
+              {% if o.status == 0 %} Mới {% endif %}
+              {% if o.status == 1 %} Đã giao hàng {% endif %}
+              {% if o.status == 2 %} Đã hủy {% endif %}
+          </td>
+          <td>
+            <a title="Xem" href="{% url 'view-order' o.id %}"><i class="fas fa-eye"></i> Xem</a>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href='/staff/list-order?page=1'>&laquo;</a></li>
+      
+      <li class="page-item"><a class="page-link" 
+        {% if page > 1 %} href='/staff/list-order?page={{page|add:-1}}' {% endif %}>&lsaquo;</a></li>
+  
+      <li class="page-item"><a class="page-link" 
+        {% if page < numpage %} href='/staff/list-order?page={{page|add:1}}' {% endif %}>&rsaquo;</a></li>
+  
+      <li class="page-item"><a class="page-link" href='/staff/list-order?page={{numpage}}'>&raquo;</a></li>
+    </ul>
+  </div>
+</div>
+</div> 
+{% endblock %}

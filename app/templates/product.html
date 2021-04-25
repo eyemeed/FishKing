@@ -1,0 +1,138 @@
+{% extends "./base.html" %} 
+{% block menu %} 
+    {% with page=2 %} 
+        {{block.super}} 
+    {% endwith %} 
+{% endblock %} 
+{% block content %}
+
+<style>
+
+  .jumbotron {
+  background-color: black;
+}
+
+  .product-image {
+    width: 95%;
+    height: 300px;
+    border-radius: 0;
+    transition: box-shadow 0.5s;
+  }
+
+  .product-image:hover {
+    box-shadow: 0px 0px 20px rgb(32, 27, 27);
+  }
+
+  .price-title {
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .product-item,
+  .product-item:link,
+  .product-item:hover,
+  .product-item:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  .item-container {
+    position: relative;
+    height: 100%;
+    padding-bottom: 50px;
+  }
+
+  .item-info {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+}
+</style>
+ 
+<div class="jumbotron text-center"></div>
+  
+<div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-3 pt-5">
+        <form>
+          <label>Tên sản phẩm:</label>
+          <input name="name"
+            value="{{name}}"
+            class="form-control" 
+            placeholder="Tìm kiếm sản phẩm...">
+          
+          <label class="mt-3">Loại sản phẩm:</label>
+          <select name='categoryId' class="form-control">  
+            <option value="">-- Chọn loại sản phẩm --</option>  
+            {% for c in categoryList %}    
+              <option {%if c.id == categoryId%}selected{%endif%}
+                value="{{c.id}}">{{c.name}}</option>
+            {% endfor %}    
+          </select>
+
+          <label class="mt-3">Mức giá:</label>
+          <select name='priceId' class="form-control">  
+            <option value="">-- Chọn mức giá --</option>  
+            {% for pr in priceList %}    
+              <option {%if pr.id == priceId%}selected{%endif%}
+                value="{{pr.id}}">{{pr.name}}</option>
+            {% endfor %}    
+          </select>
+
+          <button class="mt-3 btn btn-danger" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+        </form>
+      </div>
+      <div class="col-9">
+        <ul class="list-unstyled row">
+          {% for p in productList %}
+            <li class="list-item col-sm-4 mt-3">
+              <div class='item-container'>
+                <a href="/product-detail/{{p.id}}" class='product-item'>
+                  <div class="invisible">
+                    <span>{{forloop.counter|add:start}}</span>
+                  </div>
+                  <img src="/{{p.image}}" class='product-image' data-toggle="tooltip" data-placement="right" title="{{p.name}}">
+                  <div class="item-info">
+                    <div>
+                      <span class='product-name'>{{p.name}}</span>
+                    </div>
+                    <div>
+                      <span class='price-title'>Giá:</span>
+                      <span class='price'>{{p.price}} ₫</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="/product?page=1&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> Trang đầu </a></li>
+        {% if page > 1 %}
+          <li class="page-item"><a class="page-link" href="/product?page={{page|add:-1}}&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> < </a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link"> < </a></li>
+        {% endif %} 
+        {% if page < num_page %} 
+        <li class="page-item"><a class="page-link" href="/product?page={{page|add:1}}&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> > </a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link"> > </a></li> 
+        {% endif %}
+        <li class="page-item"><a class="page-link" href="/product?page={{num_page}}&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> Trang cuối </a></li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>

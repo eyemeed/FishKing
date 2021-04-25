@@ -1,0 +1,28 @@
+<!--app/templates/category/form.html-->
+{% extends "../base.html" %}
+
+{% block menu %} 
+  {% with page=1 %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block content %}
+<div class="container pt-3">
+  <form novalidate method="POST"> {%csrf_token%}
+    <table class="table">{{form}}</table>
+    <a href='{% url "staff-home" %}' class="btn btn-secondary">
+      Quay lại
+    </a>
+    <button type="submit" class="btn btn-primary">
+      Lưu lại
+    </button>
+  </form>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.table input').addClass('form-control');
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "../base.html" %}
+
+{% block menu %} 
+  {% with page=2 %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{%block content %}
+  <div class="container pt-3">
+    <div class="row">
+    <div class="col-2 pt-5">
+      <form>
+        <label>Tên sản phẩm:</label>
+        <input name="name"
+          value="{{name}}"
+          class="form-control" 
+          placeholder="Nhập tên sản phẩm...">
+        
+        <label class="mt-3">Loại sản phẩm:</label>
+        <select name='categoryId' class="form-control">  
+          <option value="">Tất cả</option>  
+          {% for c in categoryList %}    
+            <option {%if c.id == categoryId%}selected{%endif%}
+              value="{{c.id}}">{{c.name}}</option>
+          {% endfor %}    
+        </select>
+
+        <label class="mt-3">Mức giá:</label>
+        <select name='priceId' class="form-control">  
+          <option value="">Tất cả</option>  
+          {% for pr in priceList %}    
+            <option {%if pr.id == priceId%}selected{%endif%}
+              value="{{pr.id}}">{{pr.name}}</option>
+          {% endfor %}    
+        </select>
+
+        <button class="mt-3 btn btn-danger" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+      </form>
+      <a href='/staff/create-product'
+      class="btn btn-primary">Thêm sản phẩm</a>
+    </div>
+    <div class="col-10">
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="text-align:center">Mã</th>
+          <th style="text-align:center">Tên</th>
+          <th style="text-align:center">Nhóm</th>
+          <th style="text-align:center">Giá</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for p in productList%}
+        <tr>
+          <td style="text-align:center">{{p.code}}</td>
+          <td style="text-indent:50px">{{p.name}}</td>
+          <td style="text-align:center">{{p.category.name}}</td>
+          <td style="text-indent:50px">{{p.price}} đ</td>
+          <td>
+            <a href='{% url "update-product" p.id %}' 
+              class="btn btn-sm btn-primary">Chỉnh sửa</a>
+              
+            <a href='javascript:deleteProduct({{p.id}})' 
+               class="btn btn-sm btn-danger">Xóa</a>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="/staff/list-product?page=1&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> Trang đầu </a></li>
+    {% if page > 1 %}
+      <li class="page-item"><a class="page-link" href="/staff/list-product?page={{page|add:-1}}&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> < </a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link"> < </a></li>
+    {% endif %} 
+    {% if page < num_page %} 
+    <li class="page-item"><a class="page-link" href="/staff/list-product?page={{page|add:1}}&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> > </a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link"> > </a></li> 
+    {% endif %}
+    <li class="page-item"><a class="page-link" href="/staff/list-product?page={{num_page}}&name={{name}}&categoryId={{categoryId}}&priceId={{priceId}}"> Trang cuối </a></li>
+    </ul> 
+    </div>
+  </div>
+  </div>
+
+  <script>
+    function deleteProduct(id) {
+      if(confirm('Bạn có chắc chắn muốn xóa?')){
+        location.href = '/staff/delete-product/' + id;
+      }
+    }
+  </script>
+{% endblock %}
